@@ -3,14 +3,17 @@ import mysql.connector as database
 
 username="YOUR-DATABASE-USERNAME"
 passowrd="YOUR-DATABASE-PASSWORD"
-hostname="locolhost"#prefered
+hostname="localhost"#prefered
 databasename="YOUR-DATABASE-NAME"
 
-def connection():
-    connection = database.connect(
-        user=username,
-        password=passowrd,
-        host=hostname,
-        database=databasename
-    )
-    return connection #return connection to mysql
+try:
+    def connection():
+        connection = database.connect(
+            user=username,
+            password=passowrd,
+            host=hostname,
+            database=databasename
+        )
+        return connection #return connection to mysql
+except:
+    print("Can not connect to database")
